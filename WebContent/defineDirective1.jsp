@@ -7,27 +7,52 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js">
 	
 </script>
-<script type="text/javascript">
-	var myApp = angular.module('myApp', []).controller('Controller',
-			[ '$scope', function($scope) {
-				$scope.student = {
-					name : 'Husnu TAPAN',
-					university : 'Gazi University'
-				};
-			} ]).directive('student', function() {
-		return {
-			template : 'Name: {{student.name}} University: {{student.university}}'
-		};
-	});
-</script>
+<script>
+  
+	  var app = angular.module('myApp', []);
+	  app.controller('controller', function($scope) {
+			  $scope.lastName = "tapan";						  
+			  $scope.newMethod = function() {
+					 alert($scope.lastName);
+			  }
+		  
+	  });
 
+	</script>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 </head>
-<body ng-app="myApp">
-	<div ng-controller="Controller">
-		<div student></div>
+<body>
+
+	<h1>AngularJS two-way-databinding</h1>
+
+	<div ng-app="myApp" ng-controller="controller">
+  	<strong>First name:</strong> {{firstName}}<br />
+  	<strong>Last name:</strong> <span ng-bind="lastName"></span>
+  	<br/>
+  	<br/>
+  	
+  	
+  	
+  	<label>Set the first name: <input type="text" ng-model="firstName" ng-change="newMethod()"/></label><br />
+  	<label>Set the last name: <input type="text" ng-model="lastName"/></label>
+  	<br/>
+  	
+    <a href="" ng-click='newMethod()'>click me</a><br/>
+    <button ng-click="newMethod()">click me</button>   
+	<br/><br/>	
+	<select ng-model="selectedValue">
+			<option value="test1">test1</option>
+			<option value="test2">test2</option>
+			<option value="test3">test3</option>
+	</select> {{selectedValue}}<br/><br/>
+	
+	<input type="radio" name="selectedColor" value="Red" ng-model="selectedColor">Red</input>
+	<input type="radio" name="selectedColor" value="Green" ng-model="selectedColor">Green</input>
+	<span style="color:{{selectedColor}}">{{selectedColor}}</span>
+		
+	<br/><br/>
+	CheckBox1 <span ng-bind="checkBox1"></span><input type="checkbox" value="testCheckBox1" ng-model="checkBox1"><br/>
+	CheckBox2 <span ng-bind="checkBox2"></span><input  type="checkbox" value="testCheckBox2" ng-model="checkBox2"><br/>
+	
 	</div>
-</body>
 </html>
