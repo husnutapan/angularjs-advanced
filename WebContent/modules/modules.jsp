@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <script
@@ -8,7 +8,7 @@
 	
 </script>
 <script>
-	var app = angular.module('modules', ['modules2']);
+	var app = angular.module('modules', [ 'modules2' ]);
 
 	app.controller('controllerModule1', function($scope) {
 		$scope.lastName = "tapan1";
